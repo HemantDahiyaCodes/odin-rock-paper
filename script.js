@@ -113,11 +113,11 @@ function playRound(humanChoice, computerChoice) {
     console.log("You chose:", humanChoice);
     return "Rock won";
   }
-  // if human choice is rock and computer choice is rock
-  else if (humanChoice === "rock" && computerChoice === "scissors") {
+  // if human choice is paper and computer choice is scissors
+  else if (humanChoice === "paper" && computerChoice === "scissors") {
     console.log("computer chose", computerChoice);
     console.log("You chose:", humanChoice);
-    return "Rock won";
+    return "Scissors won";
   }
 
   else {
