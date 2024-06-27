@@ -1,129 +1,78 @@
-// create a function getComputerChoice which will randomly return rock, paper or scissors
-// Create a function getHumanChoice which will return one of the valid choice
-// declare two variables humanScore and computerScore in the global scope and initialize the value of 0.
-// Create a function playRound which takes two parameters humanChoice and computerChoice
-// Use thse two parameters to take the human and computer choices as arguments.
-// Make the humanChoice insensitive
-// Write the code for playRound function to outputs a string delcaring the winner.
-// Increment the score in humanScore or computerScore
-// Create a function playGame and score variables so they are declared inside of the new playGame function.
-// Call playRound function 5 times.
+// Create 3 buttons - rock, paper and scissors.
+// Then declare a variable `userChoice` which will store the value of the buttons choices.
+// Then assign event listeners to rock, paper and scissors.
+// Create a function for each button will help. rock() for rock, paper() for paper, scissors() for scissors.
+// When the user click on the rock, the event listener will update the value of userchoice to "rock".
+// Same for paper and scissors.
+// Then make a `playRound function` that takes two parameters(userChoice, ComputerChoice).
+// Then declare a `computerChoice` function.
+// It will output 3 values - rock, paper or scissors randomly.
+// Then compare the values using conditionals and output the winner.
+// Run the playRound function with the value `userchoice` and `ComputerChoice`.
 
-// Function to get computer choice
-function getComputerChoice() {
-  let computer_choice = Math.random(0,1);
 
-  // making choices based on random outputs
-  if (computer_choice >0 && computer_choice <=0.33) {
-    return "rock";
-  }
+// Paragraph
+const para = document.querySelector("p");
+// Computer choice
+let computerInput = Math.random();
+let computerChoice;
 
-  else if (computer_choice >0.33 && computer_choice <= 0.66) {
-    return "paper";
-  }
+if (computerInput >= 0.33 && computerInput < 0.34) {
+  computerChoice = "rock";
 
-  else {
-    return "scissors";
-  }
+} else if (computerInput >= 0.35 && computerInput < 0.65) {
+  computerChoice = "paper";
+
+} else if (computerInput >= 0.66 && computerInput < 0.99) {
+  computerChoice = "scissors";
 }
 
-// Testing the output
-// console.log("Computer chose : ", getComputerChoice());
-getComputerChoice();
+let userChoice;
+
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", () => {
+  userChoice = "rock";
+//   console.log(userChoice);
+  playRound(userChoice, computerChoice);
+});
+
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", () => {
+  userChoice = "paper";
+//   console.log(userChoice);
+  playRound(userChoice, computerChoice);
+});
+
+const scissors = document.querySelector("#Scissors");
+scissors.addEventListener("click", () => {
+  userChoice = "scissors";
+//   console.log(userChoice);
+  playRound(userChoice, computerChoice);
+});
 
 
-// Getting the user input
-function humanChoice() {
-  let human_choice = prompt("Enter your choice from rock, paper and scissors");
-  human_choice = human_choice.toLowerCase();
-  return human_choice;
-}
+// PlayRound Function.
+function playRound(userSelection, computerSelection) {
+    userSelection = userChoice;
+    computerSelection = computerChoice;
 
-// Testing the output
-// console.log("You chose : ", humanChoice());
-// humanChoice();
+    // Comparing both inputs and declaring the winner;
+    
+// if both of the inputs are same.
+    if (userSelection == computerSelection) {
+        // document.write("It's a tie");
+        para.textContent = "It's a tie";
+    }
 
+// For the inputs where human will win
+    else if (userSelection == "rock" && computerSelection =="scissors" || userSelection == "paper" && computerSelection == "rock" || userSelection == "scissors" && computerSelection == "paper") {
+        // document.write(`User won`);
+        para.textContent = "User won";
+    }
 
-
-// Scoreboard
-let humanScore = 0;
-let computerScore = 0;
-
-
-
-// Playing one round
-function playRound(humanChoice, computerChoice) {
-  
-  // Creating the logic of playing a game.
-  //  if human choose rock and computer choose rock
-  if (humanChoice === "rock" && computerChoice === "rock") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "No one won";
-  }
-
-  // if human choice is paper and computer choice is paper
-  else if (humanChoice === "paper" && computerChoice === "paper") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "No one won";
-  }
-
-  // if human choice is scissors and computer choice is scissors
-  else if (humanChoice === "scissors" && computerChoice === "scissors") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "No one won";
-  }
-
-
-  //  For rock as computer choice
-  // if human choice is paper and computer choice is rock
-  else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "Paper won";
-  }
-  // if human choice is scissors and computer choice is rock
-  else if (humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "Rock won";
-  }
-
-  // For paper as computer choice
-  // if human choice is rock and computer choice is paper
-  else if (humanChoice === "rock" && computerChoice === "paper") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "Paper won";
-  }
-  // if human choice is scissors and computer choice is rock
-  else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("computer chose: ", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "scissors won";
-  }
-
-
-    // For scissors as computer choice
-  // if human choice is rock and computer choice is scissors
-  else if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "Rock won";
-  }
-  // if human choice is paper and computer choice is scissors
-  else if (humanChoice === "paper" && computerChoice === "scissors") {
-    console.log("computer chose", computerChoice);
-    console.log("You chose:", humanChoice);
-    return "Scissors won";
-  }
-
-  else {
-    return "Please enter a valid input";
-  }
-}
-
-
-console.log(playRound(humanChoice(), getComputerChoice()));
+// For the inputs where computer will win
+    else if (userSelection == "scissors" && computerSelection =="rock" || userSelection == "rock" && computerSelection == "paper" || userSelection == "paper" && computerSelection == "scissors") {
+        // document.write(`Computer won`);
+        para.textContent = "Computer won";
+    }
+};

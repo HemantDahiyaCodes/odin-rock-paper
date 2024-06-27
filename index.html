@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors game in JavaScript</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper and Scissors Game</title>
+    <style>
+        .container{
+            /* width: 100%; */
+            height: 95vh;
+            border: 2px solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        button{
+            font-size: 48px;
+            font-family: monospace;
+            border: 2px solid black;
+            box-shadow: 10px 10px 20px 2px blue;
+            padding: 20px;
+        }
+
+        p{
+            font-size: 32px;
+            font-family: monospace;
+            font-weight: 1000;
+        }
+
+        h1{
+            font-size: 48px;
+            font-family: monospace;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h1>You can select only one and then change the choice.</h1>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="Scissors">Scissors</button>
+      <p></p>
+    </div>
     <script src="script.js"></script>
-</head>
-<body>
-    
-</body>
+  </body>
 </html>
